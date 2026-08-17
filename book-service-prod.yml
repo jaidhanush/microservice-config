@@ -50,3 +50,7 @@ springdoc:
 
   api-docs:
     path: /api-docs
+
+
+app:
+  environment: prod

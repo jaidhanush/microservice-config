@@ -1,0 +1,12 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bookdb
+
+  jpa:
+    show-sql: false
+
+app:
+  environment: uat
