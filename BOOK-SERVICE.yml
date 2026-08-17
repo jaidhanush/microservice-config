@@ -1,0 +1,46 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bookdb
+    username: postgres
+    password: Database@123
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  jackson:
+    serialization:
+      indent-output: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    root: INFO
+    com.bookstore.bookservice: DEBUG
+    org.springframework.web: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+  api-docs:
+    path: /api-docs
