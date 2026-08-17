@@ -1,6 +1,7 @@
 server:
   port: 8083
 
+spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/userdb
     username: postgres
@@ -22,11 +23,10 @@ eureka:
       defaultZone: http://localhost:8761/eureka
     enabled: false
 
-    
   instance:
-     prefer-ip-address: true
-     ip-address: 172.17.7.228
-     instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+    ip-address: 172.17.7.228
+    instance-id: ${spring.application.name}:${server.port}
 
 management:
   endpoints:
