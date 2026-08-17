@@ -5,8 +5,14 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/bookdb
 
+  username: postgres
+  password: Database@123
+
   jpa:
+    hibernate:
+      ddl-auto: update
     show-sql: true
+
 
 app:
   environment: dev
