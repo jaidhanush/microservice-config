@@ -26,6 +26,36 @@ eureka:
     ip-address: 172.17.7.228
     instance-id: ${spring.application.name}:${server.port}
 
+# ==========================================
+# Resilience4j - Circuit Breaker
+# ==========================================
+
+resilience4j:
+  circuitbreaker:
+    instances:
+
+      userService:
+        # Number of calls considered in the sliding window
+        sliding-window-size: 10
+
+        # Minimum number of calls before calculating failure rate
+        minimum-number-of-calls: 5
+
+        # Circuit opens when failure rate reaches 50%
+        failure-rate-threshold: 50
+
+        # Time circuit remains OPEN before moving to HALF_OPEN
+        wait-duration-in-open-state: 10s
+
+        # Number of calls allowed when circuit is HALF_OPEN
+        permitted-number-of-calls-in-half-open-state: 3
+
+        # Use count-based sliding window
+        sliding-window-type: COUNT_BASED
+
+        # Automatically move from OPEN → HALF_OPEN
+        automatic-transition-from-open-to-half-open-enabled: true
+
 management:
   endpoints:
     web:
@@ -50,7 +80,6 @@ springdoc:
 
   api-docs:
     path: /api-docs
-
 
 app:
   environment: prod
